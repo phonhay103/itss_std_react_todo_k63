@@ -9,7 +9,7 @@ function Input( { onAdd } ) {
 
   const handleChange = e => setText(e.target.value);
 
-  const handleKey = e => {
+  const handleEnter = e => {
     if (e.keyCode === 13) {
       onAdd(text);
       setText('');
@@ -21,10 +21,10 @@ function Input( { onAdd } ) {
       <input
         class="input"
         type="text"
-        placeholder="Enter to add"
+        placeholder="Todoを入力"
         value={text}
         onChange={handleChange}
-        onKeyDown={handleKey}
+        onKeyDown={handleEnter}
       />
     </div>
   );
