@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 
+/* 
+  【Todoのデータ構成】
+　・key：Todoを特定するID（String）
+　・text：Todoの内容（String）
+　・done：完了状態（Boolean true:完了済み,, false:未完了）
+*/
+
 /* コンポーネント */
 import TodoItem from './TodoItem';
 import Input from './Input';
@@ -29,12 +36,17 @@ function Todo() {
     });
     putItems(newItems);
   };
+  
+  const handleAdd = text => {
+    putItems([...items, { key: getKey(), text, done: false }]);
+  };
 
   return (
     <div className="panel">
       <div className="panel-heading">
         ITSS ToDoアプリ
       </div>
+      <Input onAdd={handleAdd} />
       {items.map(item => (
         <TodoItem 
           key={item.key}
