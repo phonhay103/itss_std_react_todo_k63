@@ -21,7 +21,7 @@ import {getKey} from "../lib/util";
 function Todo() {
   const [items, putItems, clearItems] = useStorage();
   
-  const [filter, setFilter] = React.useState('ALL');
+  const [filter, setFilter] = React.useState('A');
 
   const displayItems = items.filter(item => {
     if (filter === 'A') return true;
